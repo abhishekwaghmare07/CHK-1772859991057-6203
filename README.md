@@ -1,17 +1,17 @@
 # AI Deepfake Detection Web Application
 
 ## Project Overview
-This project is a Flask-based web application for image deepfake detection. Users upload an image from the browser, the backend runs model inference using a trained TensorFlow model, and the UI shows the predicted class with confidence.
+This project is a Flask-based web application for deepfake detection. Users upload images or videos from the browser, the backend runs model inference using trained TensorFlow models, and the UI shows predicted class with confidence.
 
 ## System Architecture
 1. Frontend (HTML/CSS/JavaScript)
 2. Backend API (Flask)
-3. Trained model file (`backend/deepfake_detector_model.h5`)
+3. Trained model files (`backend/deepfake_detector_model.h5` and `backend/deepfake_video_detector_model.h5`)
 
 ### Request Flow
-1. User selects an image in the web UI.
-2. Frontend sends the file to `POST /predict`.
-3. Backend preprocesses the image and runs inference.
+1. User selects an image or video in the web UI.
+2. Frontend sends the file to `POST /predict` (image) or `POST /predict/video` (video).
+3. Backend preprocesses media and runs inference.
 4. API returns JSON prediction result.
 5. Frontend renders prediction and confidence.
 
@@ -21,6 +21,7 @@ This project is a Flask-based web application for image deepfake detection. User
 - TensorFlow / Keras
 - NumPy
 - Pillow
+- OpenCV
 - HTML5, CSS3, JavaScript (Fetch API)
 
 ## Project Structure
@@ -28,7 +29,8 @@ This project is a Flask-based web application for image deepfake detection. User
 deepfake-project/
 ├── backend/
 │   ├── app.py
-│   └── deepfake_detector_model.h5
+│   ├── deepfake_detector_model.h5
+│   └── deepfake_video_detector_model.h5
 ├── frontend/
 │   ├── index.html
 │   ├── style.css
@@ -68,6 +70,10 @@ Open:
 - Content-Type: multipart/form-data
 - Field name: `file`
 
+### POST /predict/video
+- Content-Type: multipart/form-data
+- Field name: `file`
+
 ### Example Response
 ```json
 {
@@ -90,5 +96,5 @@ Raw Score: 0.934100
 ```
 
 ## Notes
-- This setup targets image deepfake detection via `/predict`.
-- Ensure `backend/deepfake_detector_model.h5` is present before starting the backend.
+- This setup supports image and video detection.
+- Ensure both model files are present before starting the backend.
