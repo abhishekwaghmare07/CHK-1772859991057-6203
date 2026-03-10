@@ -69,10 +69,14 @@ Open:
 ### POST /predict
 - Content-Type: multipart/form-data
 - Field name: `file`
+- Label mapping used by backend: `Fake=0`, `Real=1`
+- Decision threshold: `score >= 0.6 => Real`, else `Fake`
 
 ### POST /predict/video
 - Content-Type: multipart/form-data
 - Field name: `file`
+- Label mapping used by backend: `Fake=0`, `Real=1`
+- Decision threshold: `score >= 0.5 => Real`, else `Fake`
 
 ### Example Response
 ```json

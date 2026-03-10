@@ -15,6 +15,9 @@ IMAGE_MODEL_PATH = os.path.join(BASE_DIR, "deepfake_detector_model.h5")
 VIDEO_MODEL_PATH = os.path.join(BASE_DIR, "deepfake_video_detector_model.h5")
 ALLOWED_IMAGE_EXTENSIONS = {"png", "jpg", "jpeg", "bmp", "webp"}
 ALLOWED_VIDEO_EXTENSIONS = {"mp4", "avi", "mov", "mkv", "wmv", "flv", "webm"}
+# Training scripts use class mapping fake=0, real=1. Sigmoid score is probability of class 1 (real).
+IMAGE_DECISION_THRESHOLD = 0.6
+VIDEO_DECISION_THRESHOLD = 0.5
 
 app = Flask(__name__)
 CORS(app)
@@ -137,8 +140,8 @@ def predict():
         x = preprocess_image(file, image_model.input_shape)
         score = float(image_model.predict(x, verbose=0)[0][0])
 
-        prediction = "Fake" if score >= 0.5 else "Real"
-        confidence = score if score >= 0.5 else 1.0 - score
+        prediction = "Real" if score >= IMAGE_DECISION_THRESHOLD else "Fake"
+        confidence = score if prediction == "Real" else 1.0 - score
 
         return jsonify(
             {
@@ -173,8 +176,8 @@ def predict_video():
     try:
         x = preprocess_video(file, video_model.input_shape)
         score = float(video_model.predict(x, verbose=0)[0][0])
-        prediction = "Fake" if score >= 0.5 else "Real"
-        confidence = score if score >= 0.5 else 1.0 - score
+        prediction = "Real" if score >= VIDEO_DECISION_THRESHOLD else "Fake"
+        confidence = score if prediction == "Real" else 1.0 - score
 
         return jsonify(
             {
