@@ -1,0 +1,29 @@
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/
+
+# Logs
+*.log
+
+# Datasets and large training artifacts
+audio/
+img/
+video for traning/
+real_and_fake_face/
+real_and_fake_face_detection/
+*_dataset/
+*.zip
+*.tar
+*.tar.gz

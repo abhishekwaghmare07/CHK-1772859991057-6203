@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Deepfake Detection</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <h1>AI Deepfake Detection</h1>
+    <p class="subtitle">Upload an image to classify whether it is Real or Fake.</p>
+
+    <section class="card">
+      <input id="imageInput" type="file" accept="image/*">
+      <button id="predictBtn" type="button">Run Detection</button>
+
+      <div id="loading" class="hidden">Analyzing image...</div>
+      <pre id="result">Waiting for image upload.</pre>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
