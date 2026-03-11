@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Choose Detection Mode</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app-shell dashboard-shell">
+    <div class="bg-gradient"></div>
+    <div class="noise-layer"></div>
+    <div class="glow-orb glow-orb-a"></div>
+    <div class="glow-orb glow-orb-b"></div>
+
+    <section class="card detector-card">
+      <div class="top-row">
+        <button id="backHomeBtn" class="ghost-btn" type="button">Back to Dashboard</button>
+      </div>
+      <h1 class="title rgb-title">Choose Detection Mode</h1>
+      <div class="landing-actions">
+        <button id="goImageBtn" class="neon-btn dashboard-btn" type="button">Image Detection</button>
+        <button id="goVideoBtn" class="neon-btn dashboard-btn" type="button">Video Detection</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

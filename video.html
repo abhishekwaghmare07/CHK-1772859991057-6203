@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video Deepfake Detection</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <div class="bg-gradient"></div>
+    <div class="noise-layer"></div>
+
+    <section class="card detector-card">
+      <div class="top-row">
+        <button id="backHomeBtn" class="ghost-btn" type="button">Back to Home</button>
+      </div>
+
+      <h1 class="title rgb-title">Video Deepfake Detection</h1>
+      <p class="subtitle">Upload a video and run temporal AI authenticity scan.</p>
+
+      <input type="file" id="videoFile" class="file-input" accept="video/*" onchange="previewVideo(event)">
+      <label for="videoFile" class="upload-btn">Choose Video File</label>
+      <div id="videoFileName" class="file-name">No file selected</div>
+
+      <video id="videoPreview" class="video-preview" width="400" controls style="display:none; margin-top:10px; border-radius:10px;"></video>
+
+      <button id="videoDetectBtn" class="neon-btn" type="button">Detect Video Deepfake</button>
+
+      <div id="videoLoading" class="loading hidden">
+        <span class="spinner"></span>
+        <span>Analyzing video with AI model...</span>
+      </div>
+
+      <section id="videoResult" class="result-box result-neutral">
+        <p class="result-label">Prediction</p>
+        <p id="videoPrediction" class="result-value">--</p>
+        <p id="videoConfidenceText" class="confidence-text">Confidence: --</p>
+        <div class="progress-track">
+          <div id="videoProgress" class="progress-fill"></div>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

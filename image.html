@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Deepfake Detection</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <div class="bg-gradient"></div>
+    <div class="noise-layer"></div>
+
+    <section class="card detector-card">
+      <div class="top-row">
+        <button id="backHomeBtn" class="ghost-btn" type="button">Back to Home</button>
+      </div>
+
+      <h1 class="title rgb-title">Image Deepfake Detection</h1>
+      <p class="subtitle">Upload an image and run AI-powered authenticity analysis.</p>
+
+      <input id="imageFile" class="file-input" type="file" accept="image/*" onchange="previewImage(event)">
+      <label for="imageFile" class="upload-btn">Choose Image File</label>
+      <div id="imageFileName" class="file-name">No file selected</div>
+
+      <img id="imagePreview" class="image-preview" alt="Image preview" />
+
+      <button id="imageDetectBtn" class="neon-btn" type="button">Detect Image Deepfake</button>
+
+      <div id="imageLoading" class="loading hidden">
+        <span class="spinner"></span>
+        <span>Analyzing image with AI model...</span>
+      </div>
+
+      <section id="imageResult" class="result-box result-neutral">
+        <p class="result-label">Prediction</p>
+        <p id="imagePrediction" class="result-value">--</p>
+        <p id="imageConfidenceText" class="confidence-text">Confidence: --</p>
+        <div class="progress-track">
+          <div id="imageProgress" class="progress-fill"></div>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

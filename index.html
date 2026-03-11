@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Deepfake Detection System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app-shell dashboard-shell">
+    <div class="bg-gradient"></div>
+    <div class="noise-layer"></div>
+    <div class="glow-orb glow-orb-a"></div>
+    <div class="glow-orb glow-orb-b"></div>
+
+    <section class="card hero-card dashboard-hero">
+      <h1 class="title rgb-title">AI Deepfake Detection System</h1>
+    </section>
+
+    <section class="card dashboard-section">
+      <h2 class="section-title">How Our AI Model Works</h2>
+      <div class="pipeline-grid">
+        <article class="pipeline-card">
+          <p class="pipeline-index">01</p>
+          <h3>Video/Image Upload</h3>
+          <p>Input media is securely uploaded for analysis.</p>
+        </article>
+        <article class="pipeline-card">
+          <p class="pipeline-index">02</p>
+          <h3>Frame Extraction</h3>
+          <p>Key frames are sampled evenly across the timeline.</p>
+        </article>
+        <article class="pipeline-card">
+          <p class="pipeline-index">03</p>
+          <h3>Face Detection</h3>
+          <p>Largest face is detected and cropped with robust fallback.</p>
+        </article>
+        <article class="pipeline-card">
+          <p class="pipeline-index">04</p>
+          <h3>CNN + LSTM Model</h3>
+          <p>Spatial and temporal patterns are learned from sequences.</p>
+        </article>
+        <article class="pipeline-card">
+          <p class="pipeline-index">05</p>
+          <h3>Prediction</h3>
+          <p>Inference output is classified as Real or Fake.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="card dashboard-section">
+      <h2 class="section-title">Model Architecture</h2>
+      <div class="model-grid">
+        <article class="model-card">
+          <h3>Image Model</h3>
+          <p>Convolutional Neural Network (CNN)</p>
+        </article>
+        <article class="model-card">
+          <h3>Video Model</h3>
+          <p>CNN + LSTM sequence model</p>
+        </article>
+        <article class="model-card">
+          <h3>Frame Sampling</h3>
+          <p>20 frames per video</p>
+        </article>
+        <article class="model-card">
+          <h3>Input Resolution</h3>
+          <p>128 x 128</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="card dashboard-section nav-card">
+      <h2 class="section-title">Start Detection</h2>
+      <div class="landing-actions">
+        <button id="goImageBtn" class="neon-btn dashboard-btn" type="button">Image Detection</button>
+        <button id="goVideoBtn" class="neon-btn dashboard-btn" type="button">Video Detection</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
